@@ -1,3 +1,5 @@
-import texto
+from texto import*
 
-texto("texto").estadisticasTexto()
+
+v=texto("prueba.txt")
+v.estadisticasTexto()
