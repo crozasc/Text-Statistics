@@ -35,6 +35,15 @@ class texto:
     def contarLineas(self, i):
         self.lineas+=1
 
+    def buscarPalabra(self, palabra):
+        vecesRepetida = 0
+        contenido=open(self.nombre,"r")
+        for i in contenido:
+            aux=i.split()
+            for j in aux:
+                if(j==palabra): vecesRepetida+=1
+        print("La palabra \"", palabra, "\" esta repetida", vecesRepetida, "veces")
+        
     def reemplazarPalabra(self, palabra, reemplazo):
         contenidoInicial=open(self.nombre,"r")
         contenidoInicial=contenidoInicial.read()
