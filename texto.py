@@ -9,11 +9,13 @@ class texto:
         
 
     def estadisticasTexto(self):
-        for i in self.contenido:
+        contenido=open(self.nombre,"r")
+        for i in contenido:
             self.contarCaracteresConEspacio(i)
             self.contarCaracteresSinEspacio(i)
             self.contarPalabras(i)
             self.contarLineas(i)
+            self.contarPalabrasUnicas(i)
 
             
     def contarCaracteresConEspacio(self, i):
@@ -39,7 +41,7 @@ class texto:
         aux=i.split()
         aux=set(aux)
         self.palabrasUnicas.update(aux)
-        
+
     def printDetalles(self):
         print("Lineas:",self.lineas)
         print("Palabras:",self.palabras)
