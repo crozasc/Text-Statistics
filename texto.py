@@ -35,6 +35,11 @@ class texto:
     def contarLineas(self, i):
         self.lineas+=1
 
+    def contarPalabrasUnicas(self, i):
+        aux=i.split()
+        aux=set(aux)
+        self.palabrasUnicas.update(aux)
+        
     def printDetalles(self):
         print("Lineas:",self.lineas)
         print("Palabras:",self.palabras)
