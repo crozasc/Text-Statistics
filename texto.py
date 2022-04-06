@@ -1,9 +1,9 @@
 class texto:
     def __init__(self, nombre):
-        self.contenido = open(nombre, "r")
+        self.nombre = nombre
         self.lineas = 0
         self.palabras = 0
-        self.palabrasUnicas = 0
+        self.palabrasUnicas = set([])
         self.caracteresConEspacio = 1
         self.caracteresSinEspacio = 1
         
