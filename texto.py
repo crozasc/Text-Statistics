@@ -34,3 +34,10 @@ class texto:
     
     def contarLineas(self, i):
         self.lineas+=1
+
+    def reemplazarPalabra(self, palabra, reemplazo):
+        contenidoInicial=open(self.nombre,"r")
+        contenidoInicial=contenidoInicial.read()
+        contenidoInicial=contenidoInicial.replace(palabra,reemplazo)
+        contenidoFinal=open(self.nombre,"w")
+        contenidoFinal.write(contenidoInicial)
