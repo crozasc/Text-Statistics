@@ -7,16 +7,15 @@ class texto:
         self.caracteresConEspacio = 1
         self.caracteresSinEspacio = 1
         
-
     def estadisticasTexto(self):
-        contenido=open(self.nombre,"r")
+        contenido=open(self.nombre,"r", encoding="utf-8")
+        print("Las Estadisticas del libro son las siguientes")
         for i in contenido:
             self.contarCaracteresConEspacio(i)
             self.contarCaracteresSinEspacio(i)
             self.contarPalabras(i)
             self.contarLineas(i)
             self.contarPalabrasUnicas(i)
-
             
     def contarCaracteresConEspacio(self, i):
         for j in i:
@@ -49,10 +48,9 @@ class texto:
         print("Caracteres contando espacios:",self.caracteresConEspacio)
         print("Caracteres sin contar espacios:",self.caracteresSinEspacio)
 
-
     def buscarPalabra(self, palabra):
         vecesRepetida = 0
-        contenido=open(self.nombre,"r")
+        contenido=open(self.nombre,"r", encoding="utf-8")
         for i in contenido:
             aux=i.split()
             for j in aux:
@@ -60,8 +58,8 @@ class texto:
         print("La palabra \"", palabra, "\" esta repetida", vecesRepetida, "veces")
 
     def reemplazarPalabra(self, palabra, reemplazo):
-        contenidoInicial=open(self.nombre,"r")
+        contenidoInicial=open(self.nombre,"r", encoding="utf-8")
         contenidoInicial=contenidoInicial.read()
         contenidoInicial=contenidoInicial.replace(palabra,reemplazo)
-        contenidoFinal=open(self.nombre,"w")
+        contenidoFinal=open(self.nombre,"w", encoding="utf-8")
         contenidoFinal.write(contenidoInicial)
