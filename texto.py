@@ -53,7 +53,7 @@ class texto:
         vecesRepetida = 0
         contenido=open(self.nombre,"r", encoding="utf-8")
         for i in contenido:
-            aux=i.split()
+            aux=i.replace(";"," ").replace(","," ").replace("-"," ").replace("|"," ").replace("/"," ").split()
             for j in aux:
                 if(j==palabra): vecesRepetida+=1
         if(vecesRepetida==0):print("The word \"", palabra, "\" is not repeated")
