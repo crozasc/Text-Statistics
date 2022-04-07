@@ -1,6 +1,7 @@
 from texto import*
 
 def menu2(option):
+    ans=True
     if option=="1":libro="Libros_txt_utf-8\El_Arbol_De_La_Colina.txt"
     elif option=="2":libro="Libros_txt_utf-8\El_Caos_Reptante.txt"
     elif option=="3":libro="Libros_txt_utf-8\En_El_Mar_Remoto.txt"
@@ -16,7 +17,6 @@ def menu2(option):
             print("Invalid book")
             ans=False    
     t=texto(libro)
-    ans=True
     while ans:
         print ("""
         Select option
