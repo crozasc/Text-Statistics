@@ -8,8 +8,13 @@ def menu2(option):
     elif option=="5":libro="Libros_txt_utf-8\Para_Leer_Al_Atardecer.txt" 
     elif option=="6":libro="Libros_txt_utf-8\\Una_corta_historia_del_eBook.txt"
     elif option=="7":
-        libro=input("Enter the name of the book in Libros_txt_utf-8: ")
-        libro='Libros_txt_utf-8\\' + libro
+        try:
+            libro=input("Enter the name of the book in Libros_txt_utf-8: ")
+            libro='Libros_txt_utf-8\\' + libro
+            open(libro,"r", encoding="utf-8")
+        except: 
+            print("Invalid book")
+            ans=False    
     t=texto(libro)
     ans=True
     while ans:
