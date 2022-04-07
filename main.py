@@ -8,8 +8,8 @@ def menu2(option):
     elif option=="5":libro="Libros_txt_utf-8\Para_Leer_Al_Atardecer.txt" 
     elif option=="6":libro="Libros_txt_utf-8\\Una_corta_historia_del_eBook.txt"
     elif option=="7":
-        libro=input("Enter the name of the book in Libros_txt_utf-8 ")
-        libro="Libros_txt_utf-8\"" + libro
+        libro=input("Enter the name of the book in Libros_txt_utf-8: ")
+        libro='Libros_txt_utf-8\\' + libro
     t=texto(libro)
     ans=True
     while ans:
@@ -22,8 +22,8 @@ def menu2(option):
         """)
         ans=input("What would you like to do? ")
         if ans=="1":t.estadisticasTexto()
-        elif ans=="2":t.buscarPalabra(input("Enter your word "))
-        elif ans=="3":t.reemplazarPalabra(input("Enter the searched word "),input("Enter the replace word "))
+        elif ans=="2":t.buscarPalabra(input("Enter your word: "))
+        elif ans=="3":t.reemplazarPalabra(input("Enter the searched word: "),input("Enter the replace word: "))
         elif ans=="4":ans=False
         elif ans !="":
             print("\n Not Valid Choice Try again")
@@ -43,7 +43,7 @@ def menu():
         7.Another book added to Libros_txt_utf-8
         8.Leave
         """)
-        ans=input("What would you like to do? ")
+        ans=input("What would you like to do?: ")
         if ans=="1":menu2(ans) 
         elif ans=="2":menu2(ans) 
         elif ans=="3":menu2(ans) 
