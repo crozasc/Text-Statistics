@@ -1,88 +1,88 @@
-class texto:
-    def __init__(self, nombre):
-        self.nombre = nombre
-        self.lineas = 0
-        self.palabras = 0
-        self.palabrasUnicas = set([])
-        self.caracteresConEspacio = 1
-        self.caracteresSinEspacio = 1
+class text:
+    def __init__(self, name):
+        self.name = name
+        self.lines = 0
+        self.words = 0
+        self.unicWords = set([])
+        self.charactersWithSpace = 1
+        self.charactersWithoutSpace = 1
         
-    def estadisticasTexto(self):
-        contenido=open(self.nombre,"r", encoding="utf-8")
+    def statisticsText(self):
+        content=open(self.name,"r", encoding="utf-8")
         print("The statistics of the book are")
-        for i in contenido:
-            self.contarCaracteresConEspacio(i)
-            self.contarCaracteresSinEspacio(i)
-            self.contarPalabras(i)
-            self.contarLineas(i)
-            self.contarPalabrasUnicas(i)
-        self.printDetalles()
+        for i in content:
+            self.countCharactersWithSpace(i)
+            self.countCharactersWithoutSpace(i)
+            self.countWords(i)
+            self.countLines(i)
+            self.countUnicWords(i)
+        self.printStatistics()
             
-    def contarCaracteresConEspacio(self, i):
+    def countCharactersWithSpace(self, i):
         for j in i:
-            if(j!=""): self.caracteresConEspacio+= 1
-        self.caracteresConEspacio=self.caracteresConEspacio-1
+            if(j!=""): self.charactersWithSpace+= 1
+        self.charactersWithSpace=self.charactersWithSpace-1
 
-    def contarCaracteresSinEspacio(self, i):
+    def countCharactersWithoutSpace(self, i):
         for j in i:
             if(j!=" "): 
-                self.caracteresSinEspacio+= 1
-        self.caracteresSinEspacio=self.caracteresSinEspacio-1
+                self.charactersWithoutSpace+= 1
+        self.charactersWithoutSpace=self.charactersWithoutSpace-1
     
-    def contarPalabras(self, i):
+    def countWords(self, i):
         for j in i:
-            if(j==" "):self.palabras+=1
-        self.palabras=self.palabras+1
+            if(j==" "):self.words+=1
+        self.words=self.words+1
     
-    def contarLineas(self, i):
-        self.lineas+=1
+    def countLines(self, i):
+        self.lines+=1
 
-    def contarPalabrasUnicas(self, i):
+    def countUnicWords(self, i):
         aux=i.split()
         aux=set(aux)
-        self.palabrasUnicas.update(aux)
+        self.unicWords.update(aux)
 
-    def printDetalles(self):
-        print("Lines:",self.lineas)
-        print("Words:",self.palabras)
-        print("Unic Words:", len(self.palabrasUnicas))
-        print("Characters counting spaces:",self.caracteresConEspacio)
-        print("Characters without counting spaces:",self.caracteresSinEspacio)
+    def printStatistics(self):
+        print("Lines:",self.lines)
+        print("Words:",self.words)
+        print("Unic Words:", len(self.unicWords))
+        print("Characters counting spaces:",self.charactersWithSpace)
+        print("Characters without counting spaces:",self.charactersWithoutSpace)
 
-    def buscarPalabra(self, palabra):
-        vecesRepetida = 0
-        contenido=open(self.nombre,"r", encoding="utf-8")
-        for i in contenido:
+    def searchWord(self, word):
+        timesRepeated = 0
+        content=open(self.name,"r", encoding="utf-8")
+        for i in content:
             aux=i.replace(";"," ").replace(","," ").replace("-"," ").replace("|"," ").replace("/"," ").split()
             for j in aux:
-                if(j==palabra): vecesRepetida+=1
-        if(vecesRepetida==0):print("The word \"", palabra, "\" is not repeated")
-        else:print("The word \"", palabra, "\" is repeated", vecesRepetida, "times")
+                if(j==word): timesRepeated+=1
+        if(timesRepeated==0):print("The word \"", word, "\" is not repeated")
+        else:print("The word \"", word, "\" is repeated", timesRepeated, "times")
 
-    def reemplazarPalabra(self, palabra, reemplazo):
-        contenidoInicial=open(self.nombre,"r", encoding="utf-8")
-        contenidoInicial=contenidoInicial.read()
-        contenidoInicial=contenidoInicial.replace(palabra,reemplazo)
-        contenidoFinal=open(self.nombre,"w", encoding="utf-8")
-        contenidoFinal.write(contenidoInicial)
+    def reemplazarPalabra(self, word, reemplazo):
+        initialContent=open(self.name,"r", encoding="utf-8")
+        initialContent=initialContent.read()
+        initialContent=initialContent.replace(word,reemplazo)
+        finalContent=open(self.name,"w", encoding="utf-8")
+        finalContent.write(initialContent)
 
 def menu2(option):
     ans=True
-    if option=="1":libro="Libros_txt_utf-8\El_Arbol_De_La_Colina.txt"
-    elif option=="2":libro="Libros_txt_utf-8\El_Caos_Reptante.txt"
-    elif option=="3":libro="Libros_txt_utf-8\En_El_Mar_Remoto.txt"
-    elif option=="4":libro="Libros_txt_utf-8\Lazarillo_de_Tormes.txt"
-    elif option=="5":libro="Libros_txt_utf-8\Para_Leer_Al_Atardecer.txt" 
-    elif option=="6":libro="Libros_txt_utf-8\\Una_corta_historia_del_eBook.txt"
+    if option=="1":book="Libros_txt_utf-8\El_Arbol_De_La_Colina.txt"
+    elif option=="2":book="Libros_txt_utf-8\El_Caos_Reptante.txt"
+    elif option=="3":book="Libros_txt_utf-8\En_El_Mar_Remoto.txt"
+    elif option=="4":book="Libros_txt_utf-8\Lazarillo_de_Tormes.txt"
+    elif option=="5":book="Libros_txt_utf-8\Para_Leer_Al_Atardecer.txt" 
+    elif option=="6":book="Libros_txt_utf-8\\Una_corta_historia_del_eBook.txt"
     elif option=="7":
         try:
-            libro=input("Enter the name of the book in Libros_txt_utf-8: ")
-            libro='Libros_txt_utf-8\\' + libro
-            open(libro,"r", encoding="utf-8")
+            book=input("Enter the name of the book in Libros_txt_utf-8: ")
+            book='Libros_txt_utf-8\\' + book
+            open(book,"r", encoding="utf-8")
         except: 
             print("Invalid book")
             ans=False    
-    t=texto(libro)
+    t=text(book)
     while ans:
         print ("""
         Select option
@@ -92,8 +92,8 @@ def menu2(option):
         4.Go back
         """)
         ans=input("What would you like to do? ")
-        if ans=="1":t.estadisticasTexto()
-        elif ans=="2":t.buscarPalabra(input("Enter your word: "))
+        if ans=="1":t.statisticsText()
+        elif ans=="2":t.searchWord(input("Enter your word: "))
         elif ans=="3":t.reemplazarPalabra(input("Enter the searched word: "),input("Enter the replace word: "))
         elif ans=="4":ans=False
         elif ans !="":
