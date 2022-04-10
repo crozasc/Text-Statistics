@@ -1,4 +1,4 @@
-# t1
+# Text Statistics
 ## Description
 
 Simple python book statistics program. <br>
