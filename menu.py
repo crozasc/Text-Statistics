@@ -5,7 +5,7 @@ from text import *
 
 def selectedBook(option):
     """Reeplace the option with the corresponding book.
-    option -- the option selected on the previous menu
+    option -- the option selected on the previous menu.
     return the path of the book or false in case of the book doesnt exist"""
     if option=="1":return "Libros_txt_utf-8\El_Arbol_De_La_Colina.txt"
     elif option=="2":return "Libros_txt_utf-8\El_Caos_Reptante.txt"
